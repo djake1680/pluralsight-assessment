@@ -58,6 +58,7 @@ if(errors === 0) {
   var loops = 0;
   arrayLength = newArray.length;
 while(newArray.length !== 0) {
+  // if loops is greater than arrayLength, it means there's a loop and will not complete sorting order
   if (loops > arrayLength) {
     console.log("Big error");
     errors++;
