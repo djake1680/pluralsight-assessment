@@ -1,6 +1,7 @@
 var depend = ['KittenService: ','Leetmeme: Cyberportal','Cyberportal: Ice','CamelCaser: KittenService','Fraudstream: Leetmeme','Ice: '];
 var newArray = [];
 var finalArray = [];
+var errors = 0;
 
 // function splits the array into an array of arrays.
 // each new array consists of a dependency and required dependency, if any
@@ -27,6 +28,7 @@ for (var i = 0; i < newArray.length; i++) {
         //console.log(newArray[j][1]);
         if(newArray[j][0] === newArray[iteration][1]) {
           console.log("Error.  Dependencies cannot require each other");
+          errors++;
           break;
         }
         else {
@@ -52,7 +54,15 @@ for(var i = 0; i < newArray.length; i++) {
 
 // function takes remaining dependencies that require others, and sorts
 // them into the final array in the right order
+if(errors === 0) {
+  var loops = 0;
+  arrayLength = newArray.length;
 while(newArray.length !== 0) {
+  if (loops > arrayLength) {
+    console.log("Big error");
+    errors++;
+    break;
+  }
 for(var i = 0; i < newArray.length; i++) {
   var temp = [];
   for(var j = 0; j < finalArray.length; j++) {
@@ -71,21 +81,8 @@ for(var i = 0; i < newArray.length; i++) {
   //console.log("temp is " + temp);
   finalArray = finalArray.concat(temp);
 }
+loops++;
 }
-
+}
 console.log(newArray);
 console.log(finalArray);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
