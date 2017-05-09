@@ -1,9 +1,3 @@
-//var array = ['KittenService: ','Leetmeme: Cyberportal','Cyberportal: Ice','CamelCaser: KittenService','Fraudstream: Leetmeme','Ice: '];
-//var array = ['Leetmeme: Fraudstream','KittenService: ','Leetmeme: Cyberportal','Cyberportal: Ice','CamelCaser: KittenService','Fraudstream: Leetmeme','Ice: '];
-
-
-//sortArray(array);
-
 function sortArray(depend) {
 var newArray = [];
 var finalArray = [];
@@ -60,8 +54,13 @@ for(var i = 0; i < newArray.length; i++) {
 
 // function takes remaining dependencies that require others, and sorts
 // them into the final array in the right order
+if(errors === 0) {
+  var loops = 0;
+  arrayLength = newArray.length;
 while(newArray.length !== 0) {
-  if(errors != 0) {
+  if (loops > arrayLength) {
+    console.log("Big error");
+    errors++;
     break;
   }
 for(var i = 0; i < newArray.length; i++) {
@@ -81,6 +80,8 @@ for(var i = 0; i < newArray.length; i++) {
   }
   //console.log("temp is " + temp);
   finalArray = finalArray.concat(temp);
+}
+loops++;
 }
 }
 console.log(newArray);
