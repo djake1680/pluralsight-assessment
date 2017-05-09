@@ -1,6 +1,13 @@
-var depend = ['KittenService: ','Leetmeme: Cyberportal','Cyberportal: Ice','CamelCaser: KittenService','Fraudstream: Leetmeme','Ice: '];
+//var array = ['KittenService: ','Leetmeme: Cyberportal','Cyberportal: Ice','CamelCaser: KittenService','Fraudstream: Leetmeme','Ice: '];
+//var array = ['Leetmeme: Fraudstream','KittenService: ','Leetmeme: Cyberportal','Cyberportal: Ice','CamelCaser: KittenService','Fraudstream: Leetmeme','Ice: '];
+
+
+//sortArray(array);
+
+function sortArray(depend) {
 var newArray = [];
 var finalArray = [];
+var errors = 0;
 
 // function splits the array into an array of arrays.
 // each new array consists of a dependency and required dependency, if any
@@ -27,6 +34,7 @@ for (var i = 0; i < newArray.length; i++) {
         //console.log(newArray[j][1]);
         if(newArray[j][0] === newArray[iteration][1]) {
           console.log("Error.  Dependencies cannot require each other");
+          errors++;
           break;
         }
         else {
@@ -53,6 +61,9 @@ for(var i = 0; i < newArray.length; i++) {
 // function takes remaining dependencies that require others, and sorts
 // them into the final array in the right order
 while(newArray.length !== 0) {
+  if(errors != 0) {
+    break;
+  }
 for(var i = 0; i < newArray.length; i++) {
   var temp = [];
   for(var j = 0; j < finalArray.length; j++) {
@@ -72,20 +83,8 @@ for(var i = 0; i < newArray.length; i++) {
   finalArray = finalArray.concat(temp);
 }
 }
-
 console.log(newArray);
 console.log(finalArray);
+return errors;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+}

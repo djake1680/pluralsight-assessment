@@ -1,3 +1,8 @@
+var array = ['KittenService: ','Leetmeme: Cyberportal','Cyberportal: Ice','CamelCaser: KittenService','Fraudstream: Leetmeme','Ice: '];
+
+sortArray(array);
+
+function sortArray(depend) {
 var depend = ['KittenService: ','Leetmeme: Cyberportal','Cyberportal: Ice','CamelCaser: KittenService','Fraudstream: Leetmeme','Ice: '];
 var newArray = [];
 var finalArray = [];
@@ -73,19 +78,4 @@ for(var i = 0; i < newArray.length; i++) {
 }
 }
 
-console.log(newArray);
-console.log(finalArray);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
